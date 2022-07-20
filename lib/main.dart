@@ -8,7 +8,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import 'utility/color_utility.dart';
 
- GetStorage getStorage = GetStorage();
+GetStorage getStorage = GetStorage();
 
 void main() async {
   await GetStorage.init();

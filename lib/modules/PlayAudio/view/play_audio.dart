@@ -188,6 +188,8 @@ class _PlayAudioState extends State<PlayAudio> with WidgetsBindingObserver {
     likeBool.value = audioStoreList.contains(kHomeController.audioList[widget.index].audioUrl)
         ? true
         : false;
+
+    // print('opopopop${audioStoreList}');
   }
 
   @override
@@ -663,6 +665,7 @@ class _PlayAudioState extends State<PlayAudio> with WidgetsBindingObserver {
                     if (likeBool.value == true) {
                       kPlayAudioController.addAudioListData.add(audio);
                       setStorageValue('mySongs', kPlayAudioController.addAudioListData);
+                      // setStorageValue('mySongs', kHomeController.audioList);
 
                       /*    kPlayAudioController.addAudioListData.add(StoreAudioData(
                           songUri: audio,
