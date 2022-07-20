@@ -4,6 +4,8 @@ import 'package:fmradioplayer/modules/HomeScreen/view/home_screen.dart';
 import 'package:fmradioplayer/utility/color_utility.dart';
 import 'package:get/get.dart';
 
+import '../../PlayAudio/view/favorite_list_screen.dart';
+
 class SelectScreen extends StatefulWidget {
   const SelectScreen({Key? key}) : super(key: key);
 
@@ -80,7 +82,7 @@ class _SelectScreenState extends State<SelectScreen> {
             children: [
               InkWell(
                   onTap: () {
-                    Get.to(() => () {});
+                    Get.to(() => const FavoriteListScreen());
                   },
                   child: const Icon(
                     CupertinoIcons.heart_circle_fill,

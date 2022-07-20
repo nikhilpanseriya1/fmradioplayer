@@ -12,4 +12,5 @@ class StoreAudioData {
   int? id;
 
   StoreAudioData({this.name, this.id, this.artiest, this.songUri});
+
 }

@@ -68,7 +68,7 @@ class _PlayAudioState extends State<PlayAudio> with WidgetsBindingObserver {
         child: AudioSource.uri(Uri.parse(
             "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")),
         tag: AudioMetadata(
-          album: "Science Friday" ,
+          album: "Science Friday",
           title: "A Salute To Head-Scratching Science (30 seconds)",
           artwork:
               "https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg",
@@ -184,8 +184,9 @@ class _PlayAudioState extends State<PlayAudio> with WidgetsBindingObserver {
             ? (kHomeController.audioList[widget.index].audioUrl ?? '')
             : kHomeController.audioDetails[widget.index].audioUrl ?? '');
 
-     List<String> audioStoreList = getStorageValue('mySongs')??[];
-    likeBool.value = audioStoreList.contains(kHomeController.audioList[widget.index].audioUrl)
+    kPlayAudioController.audioStoreList = getStorageValue('mySongs') ?? [];
+    likeBool.value = kPlayAudioController.audioStoreList
+            .contains(kHomeController.audioList[widget.index].audioUrl)
         ? true
         : false;
 
@@ -264,8 +265,11 @@ class _PlayAudioState extends State<PlayAudio> with WidgetsBindingObserver {
                               height: 5.0,
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(kHomeController.audioDetails[audioIndex].artist ?? ''),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(kHomeController
+                                      .audioDetails[audioIndex].artist ??
+                                  ''),
                             ),
                           ],
                         );
@@ -664,7 +668,8 @@ class _PlayAudioState extends State<PlayAudio> with WidgetsBindingObserver {
                     likeBool.value = !likeBool.value;
                     if (likeBool.value == true) {
                       kPlayAudioController.addAudioListData.add(audio);
-                      setStorageValue('mySongs', kPlayAudioController.addAudioListData);
+                      setStorageValue(
+                          'mySongs', kPlayAudioController.addAudioListData);
                       // setStorageValue('mySongs', kHomeController.audioList);
 
                       /*    kPlayAudioController.addAudioListData.add(StoreAudioData(
